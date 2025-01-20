@@ -1,1 +1,2 @@
+# 仅用于触发vercel的python环境
 django==5.2a1

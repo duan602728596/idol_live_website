@@ -70,7 +70,7 @@ TEMPLATES = [
 ]
 
 # WSGI_APPLICATION = 'boot.wsgi.application'
-WSGI_APPLICATION = 'boot.wsgi.app'
+WSGI_APPLICATION = 'boot.boot.wsgi.app'
 
 
 # Database
