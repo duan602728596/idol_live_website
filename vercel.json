@@ -1,4 +1,15 @@
 {
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/python"
+        }
+      ]
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)\\.html",
