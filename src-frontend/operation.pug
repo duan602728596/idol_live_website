@@ -1,0 +1,14 @@
+- var imports = require('./entry/imports');
+
+doctype html
+html
+  head
+    include ./entry/commonHead
+    title 运行情况 - 各大城市地下偶像主办活动汇总
+  body
+    div#app
+    script
+      | globalThis.__INITIAL__STATE__ = {{ initial_state | safe }};
+
+    if htmlWebpackPlugin.options.mode === 'development'
+      script(src=imports.dll)
