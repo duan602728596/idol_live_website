@@ -5,7 +5,7 @@ import { parse as tomlParse } from 'smol-toml';
 import { metaHelper } from '@sweet-milktea/utils';
 
 const { __dirname } = metaHelper(import.meta.url);
-const vercelBuildOutput = path.join(__dirname, '../.vercel');
+const vercelBuildOutput = path.join(__dirname, '../dist2');
 
 /* 拷贝python代码和前端资源文件 */
 async function copyFile() {
