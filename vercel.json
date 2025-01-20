@@ -12,11 +12,16 @@
       "use": "@vercel/node",
       "config": {
         "installCommand": "corepack enable && yarn",
-        "buildCommand": "node --run build"
+        "buildCommand": "node --run build",
+        "outputDirectory": "dist"
       }
     },
     {
-      "src": "(src,dist)/**/*.*",
+      "src": "src/**/*.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "dist/**/*.*",
       "use": "@vercel/python"
     }
   ],
