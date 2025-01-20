@@ -2,18 +2,14 @@ import path from 'node:path';
 import { readFile, writeFile, rename } from 'node:fs/promises';
 import { copy } from 'fs-extra/esm';
 import { parse as tomlParse } from 'smol-toml';
-import { metaHelper } from '@sweet-milktea/utils';
-
-const { __dirname } = metaHelper(import.meta.url);
-const vercelBuildOutput = path.join(__dirname, '../dist2');
+import { __dirname, vercelBuildOutput } from './utils.mjs';
 
 /* 拷贝python代码和前端资源文件 */
 async function copyFile() {
-  await Promise.all([
-    copy(path.join(__dirname, '../src'), vercelBuildOutput),
-    copy(path.join(__dirname, '../dist'), path.join(vercelBuildOutput, 'dist')),
-    copy(path.join(__dirname, '../vercel.json'), path.join(vercelBuildOutput, 'vercel.json'))
-  ]);
+  await copy(path.join(__dirname, '../src'), vercelBuildOutput);
+  await copy(path.join(__dirname, '../dist'), path.join(vercelBuildOutput, 'dist'));
+  await copy(path.join(__dirname, '../vercel.json'), path.join(vercelBuildOutput, 'vercel.json'));
+  await copy(path.join(__dirname, '../.vercel/.vercel'), path.join(vercelBuildOutput, '.vercel'));
   await rename(path.join(vercelBuildOutput, 'boot'), path.join(vercelBuildOutput, 'api'));
 }
 

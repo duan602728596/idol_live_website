@@ -5,7 +5,7 @@
     "dll": "cross-env NODE_ENV=development milktea-esm dll",
     "start": "node --run clean && cross-env NODE_ENV=development NODE_OPTIONS=\"--max_old_space_size=4096\" milktea-esm start",
     "build": "node --run clean && cross-env NODE_ENV=production milktea-esm build",
-    "build:vercel": "rimraf dist2 && node --run build && node scripts/vercelBuild.mjs",
+    "build:vercel": "rimraf dist2 && node --run build && node scripts/vercelBuild.mjs && node scripts/vercelDeploy.mjs",
     "clean": "rimraf dist",
     "eslint": "cross-env COMMITLINT=1 eslint ./ --fix --cache --cache-location .eslintcache --no-warn-ignored",
     "eslint:no-fix": "cross-env COMMITLINT=1 eslint ./ --cache --cache-location .eslintcache --no-warn-ignored",
