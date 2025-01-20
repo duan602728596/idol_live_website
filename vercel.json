@@ -1,4 +1,21 @@
 {
+  "builds": [
+    {
+      "src": "*.py",
+      "use": "@vercel/python",
+      "config": {
+        "installCommand": "python -m pip install -e ."
+      }
+    },
+    {
+      "src": "*.ts",
+      "use": "@vercel/node",
+      "config": {
+        "installCommand": "corepack enable && yarn",
+        "buildCommand": "node --run build"
+      }
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
