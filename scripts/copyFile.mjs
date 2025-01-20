@@ -10,5 +10,5 @@ const vercelBuildOutput = path.join(__dirname, '../dist2');
 await Promise.all([
   copy(path.join(__dirname, '../src'), path.join(vercelBuildOutput, 'api')),
   copy(path.join(__dirname, '../dist'), path.join(vercelBuildOutput, 'dist')),
-  copy(path.join(__dirname, '../vercel.json'), path.join(vercelBuildOutput, 'dist/vercel.json'))
+  copy(path.join(__dirname, '../vercel.json'), path.join(vercelBuildOutput, 'vercel.json'))
 ]);
