@@ -24,5 +24,5 @@ target/*
 !target/.gitkeep
 __pycache__
 dist
-dist-template
+dist2
 .sweet
