@@ -4,8 +4,7 @@
       "src": "pyproject.toml",
       "use": "@vercel/python",
       "config": {
-        "installCommand": "python -m pip install -e .",
-        "outputDirectory": "/src"
+        "installCommand": "python -m pip install -e ."
       }
     },
     {
@@ -14,8 +13,12 @@
       "config": {
         "installCommand": "corepack enable && yarn",
         "buildCommand": "node --run build",
-        "outputDirectory": "/dist"
+        "outputDirectory": "dist"
       }
+    },
+    {
+      "src": "src/**/*.*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
