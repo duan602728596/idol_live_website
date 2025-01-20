@@ -1,6 +1,5 @@
 """ live view """
 
-from typing import TypedDict
 from urllib.parse import quote_plus
 from json import dumps as json_dumps
 from django.http import HttpRequest, HttpResponse, HttpResponseNotFound
