@@ -19,11 +19,11 @@ from django.urls import path, include, URLResolver, URLPattern
 from utils.env import in_test_env
 
 urlpatterns: list[URLResolver | URLPattern] = [
-    path('', include('app.index.urls')),
-    path('index/', include('app.index.urls')),
-    path('live/', include('app.live.urls')),
-    path('operation/', include('app.operation.urls')),
-    path('proxy_image/', include('app.proxy_image.urls')),
+    path('', include('views.index.urls')),
+    path('index/', include('views.index.urls')),
+    path('live/', include('views.live.urls')),
+    path('operation/', include('views.operation.urls')),
+    path('proxy_image/', include('views.proxy_image.urls')),
 ]
 
 if in_test_env:

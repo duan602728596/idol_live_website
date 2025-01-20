@@ -24,6 +24,6 @@ target/*
 !target/.gitkeep
 __pycache__
 dist
-dist2
 .sweet
-/api
+.vercel/**
+!.vercel/.gitignore

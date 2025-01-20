@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 
 from pathlib import Path
 from os.path import join
-from utils.env import ROOT_DIR, postgres_parse_result, in_test_env
+from utils.env import ROOT_DIR, postgres_parse_result, in_test_env, in_vercel_env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -53,6 +53,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'boot.urls'
+if in_vercel_env:
+    ROOT_URLCONF = 'api.boot.urls'
 
 TEMPLATES = [
     {
@@ -69,8 +71,9 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'boot.wsgi.application'
-WSGI_APPLICATION = 'boot.wsgi.app'
+WSGI_APPLICATION = 'boot.wsgi.application'
+if in_vercel_env:
+    WSGI_APPLICATION = 'api.boot.wsgi.app'
 
 
 # Database
@@ -124,7 +127,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [join(ROOT_DIR, 'dist')]
-STATICFILES_STORAGE = 'boot.boot.storage.IgnoreExtensionStaticFilesStorage'
+STATICFILES_STORAGE = 'boot.storage.IgnoreExtensionStaticFilesStorage'
+if in_vercel_env:
+    'api.boot.storage.IgnoreExtensionStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-auto-field

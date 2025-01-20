@@ -1,8 +1,16 @@
 {
   "routes": [
     {
+      "src": "/(.*)\\.html",
+      "status": 404
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "dist/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "api/boot/boot/wsgi.py"
+      "dest": "api/boot/wsgi.py"
     }
   ]
 }

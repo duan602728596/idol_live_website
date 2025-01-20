@@ -14,3 +14,9 @@ postgres_parse_result: ParseResult = urlparse(postgres_url)
 
 # 是否是测试环境
 in_test_env: bool = getenv('TEST') is not None
+
+# 是否是在vercel中
+in_vercel_env: bool = getenv('VERCEL_ENV') is not None
+
+if in_vercel_env:
+    ROOT_DIR: Path = Path(__file__).resolve().parent.parent

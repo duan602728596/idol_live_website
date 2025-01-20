@@ -11,8 +11,12 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 from django.core.handlers.wsgi import WSGIHandler
+from utils.env import in_vercel_env
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'boot.settings')
+if in_vercel_env:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'api.boot.settings')
+else:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'boot.settings')
 
 application: WSGIHandler = get_wsgi_application()
 app: WSGIHandler = application

@@ -8,9 +8,12 @@ https://docs.djangoproject.com/en/dev/howto/deployment/asgi/
 """
 
 import os
-
 from django.core.asgi import get_asgi_application
+from utils.env import in_vercel_env
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'boot.settings')
+if in_vercel_env:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'api.boot.settings')
+else:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'boot.settings')
 
 application = get_asgi_application()
