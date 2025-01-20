@@ -1,18 +1,4 @@
 {
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/node",
-      "config": {
-        "installCommand": "corepack enable && yarn",
-        "buildCommand": "node --run build:vercel"
-      }
-    },
-    {
-      "src": "api/boot/wsgi.py",
-      "use": "@vercel/python"
-    }
-  ],
   "routes": [
     {
       "src": "/(.*)\\.html",
